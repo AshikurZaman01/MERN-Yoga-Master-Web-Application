@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const DBConnection = require('./config/DBconnection');
 const { notFound, defaultErrorHandler } = require('./Middlewear/ErrorHandler/errorHandler');
 const app = express();
-
 const port = process.env.PORT
 
 
@@ -25,7 +24,7 @@ app.get("/", (req, res) => {
     res.send("hello");
 });
 
-
+app.use('/api/class', require('./Routes/classRoutes/classRoutes'));
 
 // Error handling middlewares
 app.use(notFound);
